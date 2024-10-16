@@ -1,13 +1,10 @@
-// Declarar 2 variables con número e imprimir por consola (mediante console.log()) el valor de:
-// Suma
-// Resta
-// Multiplicación
-// División
+let x = 10;
+let y = 5;
 
+console.log('Suma:', x + y);
 
-// define variables
-let x, y;
+console.log('Resta:', x - y);
 
+console.log('Multiplicación:', x * y);
 
-// print sum, substract, multiply and divide
-console.log('something')
+console.log('División:', x / y);
