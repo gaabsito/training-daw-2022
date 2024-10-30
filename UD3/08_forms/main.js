@@ -10,32 +10,32 @@ window.onload = function() {
     const surnameInput = document.getElementById('surname');
     const form = document.getElementById('main_form');
 
-    // Habilita el botón Enviar sólo si ambos checkboxes están marcados
+    //boton enviar
     condicionesCheck.onchange = privacidadCheck.onchange = () => {
         submitButton.disabled = !(condicionesCheck.checked && privacidadCheck.checked);
     };
 
-    // Función para manejar el estado del combo de opciones
+    // manejar combo opciones 
     function updateOpcionesSelect() {
         opcionesSelect.disabled = !preguntaSi.checked;
     }
 
-    // Añadir el mismo manejador a los tres radio buttons
+    // 3 botones inicio
     preguntaSi.onchange = updateOpcionesSelect;
     preguntaNo.onchange = updateOpcionesSelect;
     preguntaNsnc.onchange = updateOpcionesSelect;
 
-    // Validación de campos obligatorios al hacer submit
+    // campos obligatorios
     form.onsubmit = function(e) {
-        e.preventDefault(); // Previene el envío del formulario por defecto
+        e.preventDefault(); 
 
         if (!nameInput.value.trim() || !surnameInput.value.trim()) {
             alert("Por favor, rellena los campos de Nombre y Apellidos.");
             return;
         }
 
-        submitButton.disabled = true; // Desactiva el botón para evitar doble submit
+        submitButton.disabled = true;
 
-        form.submit(); // Enviar el formulario una vez comprobado
+        form.submit(); 
     };
 };
