@@ -3,13 +3,13 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>UD 3 ej 8</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
 <body>
-    <form name="main_form">
+    <form name="main_form" id="main_form">
         <p>
             <input type="radio" value="si" name="pregunta" id="pregunta_si">SI</input>
             <input type="radio" value="no" name="pregunta" id="pregunta_no">NO</input>
@@ -17,7 +17,7 @@
         </p>
 
         <p>
-            <select id="opciones" name="opciones">
+            <select id="opciones" name="opciones" disabled>
                 <option value="1">Primer valor</option>
                 <option value="2">Segundo valor</option>
                 <option value="3">Tercer valor</option>
@@ -27,11 +27,11 @@
 
         <p>
             <label for="name">Nombre: </label>
-            <input type="text" name="name"></input>
+            <input type="text" name="name" id="name" required>
             <label for="surname">Apellidos: </label>
-            <input type="text" name="surname"></input>
+            <input type="text" name="surname" id="surname" required>
             <label for="description">Descripción: </label>
-            <textarea type="textarea" name="description"></textarea>
+            <textarea name="description" id="description" maxlength="80"></textarea>
         </p>
 
         <p>
@@ -40,7 +40,7 @@
         </p>
 
         <p>
-            <button id="submit">Enviar</button>
+            <button id="submit" type="submit" disabled>Enviar</button>
         </p>
     </form>
 </body>

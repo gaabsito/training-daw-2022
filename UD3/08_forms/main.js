@@ -1,15 +1,31 @@
 window.onload = function() {
-    console.log(document.main_form.elements)
+    const submitButton = document.getElementById('submit');
+    const opcionesSelect = document.getElementById('opciones');
+    const preguntaSi = document.getElementById('pregunta_si');
+    const condicionesCheck = document.getElementById('condiciones');
+    const privacidadCheck = document.getElementById('privacidad');
+    const nameInput = document.getElementById('name');
+    const surnameInput = document.getElementById('surname');
+    const form = document.getElementById('main_form');
 
-    console.log(document.getElementById('pregunta_si').value)
-    console.log(document.getElementById('pregunta_si').checked)
+    condicionesCheck.onchange = privacidadCheck.onchange = () => {
+        submitButton.disabled = !(condicionesCheck.checked && privacidadCheck.checked);
+    };
 
-    document.getElementById('pregunta_si').onchange = changeValue
-    document.getElementById('pregunta_no').onchange = changeValue
+    preguntaSi.onchange = () => {
+        opcionesSelect.disabled = !preguntaSi.checked;
+    };
 
-    
-}
+    form.onsubmit = function(e) {
+        e.preventDefault();
 
-function changeValue(e) {
-     console.log('changed' + e.target.value)
-}
+        if (!nameInput.value.trim() || !surnameInput.value.trim()) {
+            alert("Por favor, rellena los campos de Nombre y Apellidos.");
+            return;
+        }
+
+        submitButton.disabled = true;
+
+        form.submit();
+    };
+};
