@@ -10,22 +10,19 @@ window.onload = function() {
     const surnameInput = document.getElementById('surname');
     const form = document.getElementById('main_form');
 
-    //boton enviar
+
     condicionesCheck.onchange = privacidadCheck.onchange = () => {
         submitButton.disabled = !(condicionesCheck.checked && privacidadCheck.checked);
     };
 
-    // manejar combo opciones 
+
     function updateOpcionesSelect() {
         opcionesSelect.disabled = !preguntaSi.checked;
     }
 
-    // 3 botones inicio
     preguntaSi.onchange = updateOpcionesSelect;
     preguntaNo.onchange = updateOpcionesSelect;
-    preguntaNsnc.onchange = updateOpcionesSelect;
 
-    // campos obligatorios
     form.onsubmit = function(e) {
         e.preventDefault(); 
 

@@ -4,13 +4,40 @@
 <title>DOM básico</title>
 <script type="text/javascript">
 window.onload = function() {
-	// Numero de enlaces de la pagina
-
-	// Direccion del penultimo enlace
-
-	// Numero de enlaces que apuntan a http://prueba
-
-	// Numero de enlaces del tercer párrafo
+	window.onload = function() {
+		// Número de enlaces de la página
+		const enlaces = document.getElementsByTagName('a');
+		console.log('Número de enlaces en la página:', enlaces.length);
+	
+		// Dirección a la que enlaza el penúltimo enlace
+		if (enlaces.length >= 2) {
+			const penultimoEnlace = enlaces[enlaces.length - 2];
+			console.log('Dirección del penúltimo enlace:', penultimoEnlace.href);
+		} else {
+			console.log('No hay suficientes enlaces para obtener el penúltimo.');
+		}
+	
+		// Número de enlaces que enlazan a "http://prueba"
+		let enlacesPrueba = 0;
+		for (let i = 0; i < enlaces.length; i++) {
+			if (enlaces[i].href === "http://prueba/") {
+				enlacesPrueba++;
+			}
+		}
+		console.log('Número de enlaces que apuntan a http://prueba:', enlacesPrueba);
+	
+	
+		const tercerParrafo = document.getElementsByTagName('p')[2]; 
+		const enlacesTercerParrafo = tercerParrafo.getElementsByTagName('a');
+		console.log('Número de enlaces en el tercer párrafo:', enlacesTercerParrafo.length);
+	
+		const div = document.createElement('div');
+		const p = document.createElement('p');
+		p.innerText = 'Este es un párrafo dentro de un nuevo div creado dinámicamente.';
+		div.appendChild(p);
+		document.body.appendChild(div);
+	};
+	
 
 }
 </script>

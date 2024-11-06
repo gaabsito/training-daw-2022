@@ -3,44 +3,54 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Eventos</title>
-    <script src='./main.js'></script>
+    <script>
+        let contador = 1;
+
+        window.onload = function() {
+            console.log('documento cargado');
+        }
+        function agregarContenido() {
+            const tablaCuerpo = document.getElementById("tabla-contenidos").getElementsByTagName("tbody")[0];
+
+            const nuevoId = contador++;
+
+            const nuevaFila = document.createElement("tr");
+
+            const celdaId = document.createElement("td");
+            celdaId.textContent = nuevoId;
+            nuevaFila.appendChild(celdaId);
+
+            const celdaContenido = document.createElement("td");
+            celdaContenido.textContent = `Contenido del ID ${nuevoId}`;  
+            nuevaFila.appendChild(celdaContenido);
+
+            const celdaAcciones = document.createElement("td");
+
+            const enlaceEditar = document.createElement("a");
+            enlaceEditar.href = `http://localhost/edit/${nuevoId}`; 
+            enlaceEditar.textContent = "Editar";
+            celdaAcciones.appendChild(enlaceEditar);
+
+
+            nuevaFila.appendChild(celdaAcciones);
+            tablaCuerpo.appendChild(nuevaFila);
+        }
+    </script>
 </head>
 <body>
-<p id="contenidos_1">Lorem ipsum dolor sit amet, consectetuer adipiscing
- elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu,
- consequat congue, commodo nec, commodo ultricies, turpis. Quisque 
-sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque 
-massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam 
-sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, 
-semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu 
-adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam 
-non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-Duis scelerisque.</p>
-<a id="enlace_1" href="#">Ocultar contenidos</a>
-<br>
-<p id="contenidos_2">Lorem ipsum dolor sit amet, consectetuer adipiscing
- elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu,
- consequat congue, commodo nec, commodo ultricies, turpis. Quisque 
-sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque 
-massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam 
-sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, 
-semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu 
-adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam 
-non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-Duis scelerisque.</p>
-<a id="enlace_2" href="#">Ocultar contenidos</a>
-<br>
-<p id="contenidos_3">Lorem ipsum dolor sit amet, consectetuer adipiscing
- elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu,
- consequat congue, commodo nec, commodo ultricies, turpis. Quisque 
-sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque 
-massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam 
-sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, 
-semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu 
-adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam 
-non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-Duis scelerisque.</p>
-<a id="enlace_3" href="#">Ocultar contenidos</a>
+    <h2>Gestión de Contenidos</h2>
+    <button onclick="agregarContenido()">Agregar Contenido</button>
 
-
-</body></html>
+    <table id="tabla-contenidos" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Contenido</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>
