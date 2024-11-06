@@ -5,19 +5,14 @@
 <script type="text/javascript">
 window.onload = function() {
 	window.onload = function() {
-		// Número de enlaces de la página
 		const enlaces = document.getElementsByTagName('a');
 		console.log('Número de enlaces en la página:', enlaces.length);
-	
-		// Dirección a la que enlaza el penúltimo enlace
 		if (enlaces.length >= 2) {
 			const penultimoEnlace = enlaces[enlaces.length - 2];
 			console.log('Dirección del penúltimo enlace:', penultimoEnlace.href);
 		} else {
 			console.log('No hay suficientes enlaces para obtener el penúltimo.');
 		}
-	
-		// Número de enlaces que enlazan a "http://prueba"
 		let enlacesPrueba = 0;
 		for (let i = 0; i < enlaces.length; i++) {
 			if (enlaces[i].href === "http://prueba/") {
