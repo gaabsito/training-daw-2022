@@ -1,11 +1,8 @@
 function insert(array, item, position) {
-    // Verificamos si el elemento ya existe en el array
     if (!array.includes(item)) {
         if (position) {
-            // Insertar al principio si `position` es true
             array.unshift(item);
         } else {
-            // Insertar al final si `position` es false
             array.push(item);
         }
     }
